@@ -15,4 +15,12 @@ public class Part2
         }
         return count;
     }
+     public void testHowMany(){
+        String stringa = "GAA";
+        String stringb = "ATGAACGAATTGAATC";
+        System.out.println(howMany(stringa, stringb));
+        stringa = "AA";
+        stringb = "ATAAAA";
+        System.out.println(howMany(stringa, stringb));
+    }
 }
