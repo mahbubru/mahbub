@@ -1,5 +1,13 @@
-public class Part3
+
+/**
+ * Write a description of class gf here.
+ *
+ * @author (your name)
+ * @version (a version number or a date)
+ */
+public class gf
 {
+  {
     public int findStopCodon(String dna, int startIndex, String stopCodon){
         int stopIndex = dna.indexOf(stopCodon, startIndex + 3);
         while(stopIndex != -1){
