@@ -20,7 +20,7 @@ public class ExportData {
 		int x = numberOfExporters(parser, "gold");
 		System.out.println(x);
 		parser = fr.getCSVParser();
-		//bigExporters(parser, "$999,999,999");
+		bigExporters(parser, "$999,999,999");
 	}
 	private String countryinfo(CSVParser parser, String string) {
 		for(CSVRecord record : parser){
@@ -47,6 +47,22 @@ public class ExportData {
 			}
 		}
 		return i;
+	}
+	private void bigExporters(CSVParser parser, String string) {
+		String x = string.replace("$", "");
+		x = x.replaceAll(",", "");
+		long i = Long.parseLong(x);
+		
+		for(CSVRecord record : parser){
+			String a = record.get("Value (dollars)");
+			String b = a.replace("$", "");
+			b = b.replaceAll(",", "");
+			long j = Long.parseLong(b);
+			if(j > i){
+				System.out.println(record.get("Country") + " " + record.get("Value (dollars)"));
+			}
+		}
+		
 	}
 
 
