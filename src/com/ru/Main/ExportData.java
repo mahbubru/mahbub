@@ -17,10 +17,10 @@ public class ExportData {
 		parser = fr.getCSVParser();
 		listExportersTwoProducts(parser, "gold", "diamonds");
 		parser = fr.getCSVParser();
-		/*int x = numberOfExporters(parser, "gold");
+		int x = numberOfExporters(parser, "gold");
 		System.out.println(x);
 		parser = fr.getCSVParser();
-		bigExporters(parser, "$999,999,999");*/
+		//bigExporters(parser, "$999,999,999");
 	}
 	private String countryinfo(CSVParser parser, String string) {
 		for(CSVRecord record : parser){
@@ -39,5 +39,15 @@ public class ExportData {
 		}
 		
 	}
+	private int numberOfExporters(CSVParser parser, String string) {
+		int i = 0;
+		for(CSVRecord record : parser){
+			if(record.get("Exports").contains(string)){
+				i++;
+			}
+		}
+		return i;
+	}
+
 
 }
